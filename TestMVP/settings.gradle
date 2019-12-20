@@ -1,0 +1,2 @@
+include ':testmvp'
+rootProject.name='TestMVP'
