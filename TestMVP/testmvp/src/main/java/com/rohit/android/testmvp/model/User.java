@@ -3,8 +3,6 @@ package com.rohit.android.testmvp.model;
 import android.text.TextUtils;
 import android.util.Patterns;
 
-import java.util.regex.Pattern;
-
 public final class User implements IUser {
     private String emailId;
     private String password;
@@ -24,12 +22,10 @@ public final class User implements IUser {
         return password;
     }
 
-    @Override
     public boolean isValidEmail() {
         return (!TextUtils.isEmpty(emailId) && Patterns.EMAIL_ADDRESS.matcher(emailId).matches());
     }
 
-    @Override
     public boolean isValidPassword() {
         return (!TextUtils.isEmpty(password) && password.length() > 4);
     }

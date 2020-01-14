@@ -1,15 +1,17 @@
 package com.rohit.android.testmvp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.rohit.android.testmvp.presenter.ILoginPresenter;
 import com.rohit.android.testmvp.presenter.LoginPresenterImpl;
+import com.rohit.android.testmvp.view.HomeActivity;
 import com.rohit.android.testmvp.view.ILoginView;
 
 import es.dmoral.toasty.Toasty;
@@ -40,14 +42,14 @@ public class MainActivity extends AppCompatActivity implements ILoginView {
         });
     }
 
-
     @Override
     public void onLoginSuccess(String message) {
-        Toasty.success(this, message, Toast.LENGTH_SHORT, true).show();
+        Toasty.success(this.getApplicationContext(), message, Toast.LENGTH_SHORT, true).show();
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
     @Override
     public void onLoginError(String errorMessage) {
-        Toasty.error(this, errorMessage, Toast.LENGTH_SHORT, true).show();
+        Toasty.error(this.getApplicationContext(), errorMessage, Toast.LENGTH_SHORT, true).show();
     }
 }

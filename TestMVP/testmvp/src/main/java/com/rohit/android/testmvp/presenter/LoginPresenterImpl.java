@@ -9,6 +9,7 @@ import es.dmoral.toasty.Toasty;
 
 public final class LoginPresenterImpl implements ILoginPresenter {
     private ILoginView loginView;
+    private int count = 0;
 
     public LoginPresenterImpl(ILoginView loginView) {
         this.loginView = loginView;
@@ -35,5 +36,9 @@ public final class LoginPresenterImpl implements ILoginPresenter {
             }
             loginView.onLoginError(errorMessage);
         }
+    }
+
+    public int calculateSomething() {
+        return ++count;
     }
 }
